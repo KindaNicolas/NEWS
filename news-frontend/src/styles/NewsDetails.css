@@ -1,0 +1,26 @@
+.news-details {
+  text-align: center;
+  padding: 20px;
+}
+
+.news-image {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.back-button {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.back-button:hover {
+  background-color: #a51212;
+}

@@ -1,0 +1,144 @@
+/* Navbar Container */
+
+body {
+    font-family: Arial, sans-serif;
+    //background-color: #2c7a7b; /* Green background */
+    margin: 0;
+    padding: 0;
+    direction: rtl; /* Right-align for Arabic */
+}
+
+
+
+.navbar-container {
+  position: absolute; /* Ensures navbar is overlaid on the carousel */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10; 
+  //background: rgba(0, 0, 0, 0.5); 
+  padding: 10px 0;
+}
+/* Navbar Content */
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px 20px;
+}
+
+/* Logo Section */
+.logo-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Logo Image */
+.logo-image {
+  width: 120px;
+  height: auto;
+}
+
+/* Subtitle under logo */
+.sub-logo {
+  font-size: 22px;
+  color: white; /* Ensure contrast for visibility */
+}
+
+
+/* Authentication Button */
+.auth-button {
+  background: white;
+  color: #1d5b3f;
+  border: 2px solid white;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.auth-button:hover {
+  background-color: #f3a71a;
+  color: white;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  color: white; /* Contrast with navbar background */
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 15px;
+}
+
+.nav-links a:hover {
+  background-color: #f3a71a;
+  color: white;
+  border-radius: 5px;
+}
+
+/* Burger Menu (Hidden on Desktop) */
+.burger-menu {
+  display: none;
+  cursor: pointer;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .navbar-content {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* Show Burger Menu */
+  .burger-menu {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  /* Hide Navigation Links Initially */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  /* Show Menu When Active */
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 10px;
+  }
+
+  .nav-links a {
+    width: 100%;
+    display: block;
+    padding: 10px;
+  }
+}
