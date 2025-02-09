@@ -1,99 +1,194 @@
-.most-read-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-}
-
-body {
-  direction: rtl;  /* Ensure everything is from right to left */
-  text-align: right; /* Align text properly */
-}
-
+/* Main container for "Most Read" section */
 .most-read-container {
-  background: white;
-  flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    gap: 15px;
+    max-width: 1000px;
+    margin: auto;
 }
-
-.section-title {
-  font-size: 22px;
-  font-weight: bold;
-  color: #2a9d8f;
+.rtl {
+  direction: rtl;
   text-align: right;
-  margin-bottom: 15px;
 }
 
-.collapsible-section {
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
+/* Left section (Most Read Articles) */
+.most-read-articles {
+    width: 55%;
+flex: 1;
+  background: #f9f9f9;
+  padding: 15px;
   border-radius: 5px;
-  overflow: hidden;
-  margin-bottom: 10px;
 }
 
-.section-header {
-  background: #34495e;
-  color: white;
-  padding: 10px;
-  cursor: pointer;
-  display: flex;
- //justify-content: space-between;
-justify-content: flex-start;
-  align-items: center;
-  font-size: 16px;
-  font-weight: bold;
+.most-read-title {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: right;
+    color: #0c7145;
+    margin-bottom: 10px;
 }
 
-
-
-.toggle-btn {
-  background: #2ecc71;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 3px;
+/* Article container */
+.article {
+    background: #f8f8f8;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid #ddd;
 }
 
-.toggle-btn.active {
-  background: #c0392b;
+/* Expanded article */
+.article.expanded {
+    background: #e8e8e8;
 }
 
-.section-content {
-  padding: 10px;
-  background: #f5f5f5;
-  font-size: 14px;
-  text-align: right;
-  border-top: 1px solid #ddd;
-}
-
-/* Ensure the image is styled exactly like the articles */
-.article-box {
-  background: white;
-  border-radius: 8px;
-  max-width: 35%;
-  flex: 1;
-  text-align: center;
-}
-
-.article-img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-@media (max-width: 768px) {
-  .most-read-section {
-    flex-direction: column;
+/* Article header: button aligned separately */
+.article-header {
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
-  }
+    padding: 10px;
+    background: #ddd;
+   //border-radius: 5px;
 
-  .most-read-container {
-    max-width: 100%;
-  }
+  border-bottom: 1px solid #ddd;
+ transition: background 0.3s ease-in-out;
+}
 
-  .article-box {
-    max-width: 100%;
+.article-header:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Expand button */
+.expand-btn {
+    background: #e44d26;
+    color: white;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+  transition: background 0.3s ease-in-out;
+
+}
+
+/* Button hover */
+.expand-btn:hover {
+    background: #d63c1d;
+}
+
+/* Article text: Aligned to the right */
+.article-header h3 {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+    flex-grow: 1;
+    text-align: right;
+}
+
+/* Hidden content */
+.article-content {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0 0 35px;
+}
+
+/* Right section (Image) */
+.most-read-image {
+    width: 45%;
+    position: relative;
+}
+
+.most-read-image img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Text overlay on image */
+.ad-text {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: right;
+}
+
+.ad-text h3 {
+    font-size: 20px;
+    color: #0c7145;
+    margin-bottom: 5px;
+}
+
+.ad-text p {
+    font-size: 14px;
+    color: #333;
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 768px) {
+    .most-read-container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .most-read-articles {
+        width: 100%;
+    }
+ .most-read-image {
+    display: none; /* Hide image on mobile */
   }
+    .most-read-title {
+        font-size: 18px; /* Reduce title size */
+        text-align: center;
+    }
+
+    .article-header h3 {
+        font-size: 14px; /* Reduce text size */
+    }
+
+    .expand-btn {
+        width: 22px;
+        height: 22px;
+        font-size: 14px;
+    }
+
+    .most-read-image {
+        width: 100%;
+    }
+
+    .most-read-image img {
+        max-height: 200px; /* Scale image height */
+        object-fit: cover;
+    }
+
+    .ad-text {
+        bottom: 5px;
+        left: 10px;
+        font-size: 12px;
+    }
+
+    .ad-text h3 {
+        font-size: 16px;
+    }
+
+    .ad-text p {
+        font-size: 12px;
+    }
 }

@@ -1,62 +1,61 @@
 import React, { useState } from "react";
 import "../styles/MostRead.css";
-import news7 from "../assets/news7.png"; // Replace with actual image pathimport React, { useState } from "react";
+import adImage from "../assets/news8.png";
 
-const MostRead = () => {
-  const [openSection, setOpenSection] = useState(null);
+const MostRead = ({ language }) => {
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
-  const toggleSection = (index) => {
-    setOpenSection(openSection === index ? null : index);
-  };
-
+  // Example articles
   const articles = [
     {
-      title: "الكلمات العشوائية",
-      content: "هناك العديد من الأنواع المختلفة لنصوص الرسوم، ولكن الغالبية لم تعدلها بشكل ما عند إدخال بعض الجمل أو الكلمات العشوائية في النص.",
+      title: language === "ar" ? "الكلمات العشوائية" : "Random Words",
+      content: language === "ar"
+        ? "هناك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم ولكن الغالبية..."
+        : "There are many types of Lorem Ipsum texts available, but most...",
     },
     {
-      title: "مقالة شائعة 1",
-      content: "هناك العديد من الأنواع المختلفة لنصوص الرسوم، ولكن الغالبية لم تعدلها.",
+      title: language === "ar" ? "هناك العديد من الأنواع المتوفرة" : "Various Types Available",
+      content: language === "ar"
+        ? "هناك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم ولكن الغالبية..."
+        : "There are many types of Lorem Ipsum texts available, but most...",
     },
     {
-      title: "مقالة شائعة 2",
-      content: "هناك العديد من الأنواع المختلفة لنصوص الرسوم، ولكن الغالبية لم تعدلها.",
+      title: language === "ar" ? "هناك العديد من الأنواع المتوفرة" : "Many Available Types",
+      content: language === "ar"
+        ? "هناك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم ولكن الغالبية..."
+        : "There are many types of Lorem Ipsum texts available, but most...",
     },
     {
-      title: "مقالة شائعة 3",
-      content: "هناك العديد من الأنواع المختلفة لنصوص الرسوم، ولكن الغالبية لم تعدلها.",
+      title: language === "ar" ? "هناك العديد من الأنواع المتوفرة" : "Plenty of Variations",
+      content: language === "ar"
+        ? "هناك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم ولكن الغالبية..."
+        : "There are many types of Lorem Ipsum texts available, but most...",
     },
   ];
 
-  return (
-    
-    <div className="most-read-section">
+  // Toggle article expansion
+  const toggleExpand = (index) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
 
-      <div className="article-box">
-        <img src={news7} alt="Advertisement" className="article-img" />
+  return (
+    <div className={`most-read-container ${language === "ar" ? "rtl" : "ltr"}`}>
+      <div className="most-read-image">
+        <img src={adImage} alt="Ad or Featured Content" />
       </div>
-      {/* Most Read Articles */}
-      <div className="most-read-container">
-        <h2 className="section-title">الأكثر قراءة</h2>
+
+      <div className="most-read-articles">
+        <h2 className="most-read-title">{language === "ar" ? "الأكثر قراءة" : "Most Read"}</h2>
         {articles.map((article, index) => (
-          <div key={index} className="collapsible-section">
-            <div
-              className={`section-header ${openSection === index ? "open" : ""}`}
-              onClick={() => toggleSection(index)}
-            >
-               <button className={`toggle-btn ${openSection === index ? "active" : ""}`}>
-                {openSection === index ? "-" : "+"}
-              </button>
-              <span>{article.title}</span>
-             
+          <div key={index} className={`article ${expandedIndex === index ? "expanded" : ""}`}>
+            <div className="article-header" onClick={() => toggleExpand(index)}>
+              <button className="expand-btn">{expandedIndex === index ? "-" : "+"}</button>
+              <h3>{article.title}</h3>
             </div>
-            {openSection === index && <div className="section-content">{article.content}</div>}
+            {expandedIndex === index && <p className="article-content">{article.content}</p>}
           </div>
         ))}
       </div>
-
-      {/* Image Section Styled as Article */ }
-      
     </div>
   );
 };

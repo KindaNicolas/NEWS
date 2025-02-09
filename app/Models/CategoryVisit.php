@@ -10,10 +10,9 @@ class CategoryVisit extends Model
 {
     use HasFactory;
 
-    protected $table = 'visits'; // ✅ Ensure this matches your migration table name
-    protected $fillable = ['category', 'user_ip', 'user_id']; // ✅ Add 'user_id'
+    protected $table = 'visits'; 
+    protected $fillable = ['category', 'user_ip', 'user_id']; 
 
-    // Relationship: A visit belongs to a user
     public function user()
     {
         return $this->belongsTo(User::class);

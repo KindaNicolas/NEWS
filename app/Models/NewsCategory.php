@@ -9,5 +9,5 @@ class NewsCategory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name']; // Allows mass assignment
+    protected $fillable = ['name']; 
 }

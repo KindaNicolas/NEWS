@@ -19,18 +19,6 @@ use App\Http\Controllers\VisitController;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:api');
-/*
-Route::post('/visit/{categoryId}', [VisitController::class, 'storeVisit']);
-Route::get('/aggregates/{timeFrame}', [VisitController::class, 'getAggregates']);
-*/
-
-
-
-/*
-Route::post('visit', [VisitController::class, 'storeVisit']);
-Route::get('aggregates', [VisitController::class, 'getAggregates']);
-*/
-
 
 
 Route::middleware(['auth:api'])->group(function () {

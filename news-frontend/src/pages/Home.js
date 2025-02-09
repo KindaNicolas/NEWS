@@ -4,6 +4,7 @@ import MostRead from "../components/MostRead";
 import Footer from "../components/Footer";
 import CategoriesGrid from "../components/CategoriesGrid";
 import "../styles/HomePage.css"; // Import global styles
+import NewsPortal from "../components/NewsPortal";
 
 const HomePage = () => {
   const [token, setToken] = useState(undefined); // ✅ Use `undefined` to indicate "loading"
@@ -26,7 +27,11 @@ const HomePage = () => {
     <div className="homepage-container">
   
       <div className="content-container">
-        <NewsCarousel />
+        <NewsPortal />
+      </div> 
+
+      <div className="content-container">
+        <CategoriesGrid />
       </div>
 
       <div className="content-container">

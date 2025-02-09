@@ -1,93 +1,120 @@
+/* ✅ Container */
 .categories-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
-/* Categories Grid */
+/* ✅ Default Grid Layout (3 per row) */
 .categories-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 15px;
+    width: 90%;
+    max-width: 1000px;
 }
 
-/* Large Image Box (First Category) */
-.large-category-box {
-  grid-column: span 3;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  cursor: pointer;
+/* ✅ Larger first category (spans 2 rows) */
+.category-box:first-child {
+    grid-column: span 1;
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+    height: auto;
 }
 
-.large-category-box img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.large-category-box h3 {
-  font-size: 22px;
-  margin-top: 10px;
-  color: #d32f2f;
-}
-
-/* Small Categories Grid */
-.small-categories-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-}
-
-/* Small Category Boxes */
+/* ✅ Category box styles */
 .category-box {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  cursor: pointer;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: right;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+}
+.rtl {
+  direction: rtl;
+  text-align: right;
 }
 
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+/* ✅ Hover effect */
+.category-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ Category images */
 .category-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
+    width: 100%;
+    height: 150px;
+    object-fit: fill;
+    border-radius: 10px 10px 0 0;
 }
 
+/* ✅ Ensure first category image takes full height */
+.category-box:first-child .category-image {
+    height: 100%;
+    object-fit: fill;
+    flex-grow: 1;
+}
+
+/* ✅ Category Title */
 .category-box h3 {
-  margin-top: 10px;
-  font-size: 18px;
-  color: #d32f2f;
+    margin: 10px 10px 5px 0;
+    font-size: 18px;
+    color: #333;
 }
 
+/* ✅ More Button */
 .more-button {
-  background-color: #f3a71a;
-  border: none;
-  padding: 8px 15px;
-  margin-top: 10px;
-  cursor: pointer;
-  font-size: 14px;
-  color: white;
-  border-radius: 5px;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    align-self: flex-end;
 }
 
 .more-button:hover {
-  background-color: #d32f2f;
+    background-color: #0056b3;
 }
 
-/* Responsive */
+/* 📱 ✅ Responsive Design for Tablets (2 per row) */
 @media (max-width: 768px) {
-  .small-categories-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
 
-  .large-category-box img {
-    height: 300px;
-  }
+    .category-box:first-child {
+        grid-column: span 2; /* Make first category span both columns */
+        grid-row: auto;
+    }
+}
+
+/* 📱 ✅ Responsive Design for Mobile (1 per row) */
+@media (max-width: 480px) {
+    .categories-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 column */
+    }
+
+    .category-box:first-child {
+        grid-column: span 1;
+        grid-row: auto;
+    }
+
+    .category-image {
+        height: 120px; /* Reduce image height for smaller screens */
+    }
 }

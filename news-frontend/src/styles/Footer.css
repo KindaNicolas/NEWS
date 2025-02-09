@@ -1,53 +1,9 @@
+/* Footer General Styles */
 .footer {
   background: #f5f5f5;
   padding: 20px;
   text-align: right;
 }
-
-
-body {
-  direction: rtl;  /* Ensure everything is from right to left */
-  text-align: right; /* Align text properly */
-}
-
-.underlined {
-  text-decoration: underline;
-}
-
-.subscribe-box {
-    display: flex;
-    align-items: center;
-    background: white;
-    border-radius: 30px; /* Oval shape */
-    overflow: hidden; /* Ensures button is attached */
-    width: 100%;
-    max-width: 350px; /* Adjust size */
-}
-
-.subscribe-box input {
-    border: none;
-    padding: 10px 15px;
-    flex: 1; /* Takes full space */
-    outline: none;
-    font-size: 16px;
-    direction: rtl; /* Right-to-left for Arabic */
-}
-
-.subscribe-box button {
-    border: none;
-    background: #E44D26; /* Red color */
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 0 30px 30px 0; /* Makes right side round */
-}
-
-.subscribe-box button:hover {
-    background: #d63c1d; /* Darker red on hover */
-}
-
-
 
 .footer-container {
   max-width: 1200px;
@@ -75,31 +31,11 @@ body {
   color: #555;
 }
 
-.subscribe {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.subscribe input {
-  padding: 8px;
-  
-  flex: 1;
-}
-
-.subscribe button {
-  background: #e74c3c;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
+/* Social Icons */
 .social-icons {
   display: flex;
   gap: 10px;
+  margin-top: 10px;
 }
 
 .social-icons a {
@@ -112,13 +48,44 @@ body {
   color: #e74c3c;
 }
 
-.copyright {
-  text-align: center;
-  font-size: 14px;
+/* ✅ Registration Form */
+.register-form {
+  display: none; /* Hide in desktop */
+  flex-direction: column;
+  gap: 10px;
   margin-top: 10px;
+  max-width: 300px;
+  text-align: center;
 }
 
-/* Responsive for Mobile */
+.register-form input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.register-form button {
+  background: #e44d26;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.register-form button:hover {
+  background: #d63c1d;
+}
+
+/* Success/Error Message */
+.register-message {
+  color: green;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* ✅ Mobile Version - Show Only Registration Form & Social Icons */
 @media (max-width: 768px) {
   .footer-columns {
     flex-direction: column;
@@ -127,12 +94,16 @@ body {
   }
 
   .footer-column {
-    display: none; /* Hide text sections */
+    display: none; /* Hide everything except social & register */
   }
 
   .social-section {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .register-form {
+    display: flex; /* Show form in mobile */
   }
 }

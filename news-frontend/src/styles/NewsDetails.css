@@ -5,22 +5,35 @@
 
 .news-image {
   width: 100%;
-  max-width: 800px;
+  max-width: 700px;
   height: auto;
   border-radius: 10px;
   margin-bottom: 20px;
+transition: transform 0.2s ease-in-out;
 }
 
+.news-image:hover {
+  transform: scale(1.03);
+}
 .back-button {
-  background-color: #d32f2f;
+  background-color: #e44d26;
   color: white;
   border: none;
   padding: 10px 15px;
   cursor: pointer;
   font-size: 16px;
-  border-radius: 5px;
+   transition: background 0.3s ease-in-out;
 }
 
 .back-button:hover {
-  background-color: #a51212;
+  background-color: #d63c1d;
+}
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.ltr {
+  direction: ltr;
+  text-align: left;
 }
